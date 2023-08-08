@@ -1,4 +1,4 @@
-## Discord Windows 10 Platform Attack Surfaces and Vectors
+## Discord Windows 10 Platform Attack Surfaces
 
 - **Client** <br>
   - Arbitrary process injection & execution
