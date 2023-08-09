@@ -9,29 +9,27 @@ from discord.ext import commands
 
 class BotClient(commands.AutoShardedBot):
     def __init__(self, **kwargs):
-        intents = discord.Intents.all()
-        super().__init__(command_prefix=',', intents=intents, **kwargs)
-        self.remove_command('help')
+        intents = discord.Intents.all()        # Update this
+        super().__init__(command_prefix=',', intents=intents, help_command=None, **kwargs)
 
-        if not os.path.exists('data.json'):
-            with open('data.json', 'w') as f:
-                json.dump({}, f, indent=4)
-
+    """ Load all cogs in cog directory """
     async def load_cogs(self):
         for filename in os.listdir('./cogs'):
             if filename.endswith('.py'):
                 await self.load_extension(f'cogs.{filename[:-3]}')
                 debug_print(f"loaded cog: {filename[:-3]}")
 
+    """ Setup bot cogs and status """
     async def on_ready(self):
         await self.load_cogs()
         debug_print("bot is ready")
-        # Change bot status
         await self.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=",help"), status=discord.Status.online)
 
+    """ Log all commands """
     async def on_command(self, ctx):
         debug_print(f"{ctx.author.name}#{ctx.author.discriminator} ({ctx.author.id}) sent command: {ctx.command.name}")
 
+    """ Handle command errors """
     async def on_command_error(self, ctx, error):
         if hasattr(ctx.command, 'on_error'):
             return
