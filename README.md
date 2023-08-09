@@ -25,7 +25,6 @@ To add the Economy Bot to your Discord server, follow these steps:
 |---------------|-------------------------------------|------------------------|
 | `,balance`    | Check your current balance.         | `,balance`, `,bal`     |
 | `,shop`       | View the current shop index.        | `,shop`, `,store`      |
-| `!balance`    | Check your current balance.         | `!balance`, `bal`      |
 
 ## Contributing
 
