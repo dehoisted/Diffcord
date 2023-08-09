@@ -2,7 +2,7 @@
 
 <!-- ![Bot Logo](bot_logo.png) -->
 
-Hi 🔥
+Hi 🔥 **Orlando setup the MySQL stuff you owe me that...**
 
 ## Features
 
